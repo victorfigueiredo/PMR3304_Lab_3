@@ -55,6 +55,18 @@ class Calc {
         this.oper = undefined
         this.operadoranterior = ''
     }
+    Memo(Mx,memo){
+        if(Mx === 'MS'){
+            memo[0] = parseFloat(this.operadoratual)        
+            this.operadoratual = ''
+        }
+        if(Mx === 'MR'){
+            this.operadoratual = memo[0]
+        }
+        if(Mx === 'MC'){
+            memo[0] = 0
+        }
+    }
 }
 
 /* const electron = require('electron');
@@ -89,6 +101,8 @@ const igual = document.querySelector('[data-igual]')
 const AC = document.querySelector('[data-ac]')
 const telainf = document.querySelector('[data-operador-atual]')
 const telasup = document.querySelector('[data-operador-anterior]')
+const memoria = document.querySelectorAll('[data-memoria]')
+const salvo = [0]
 const calculadora = new Calc(telasup, telainf)
 
 numero.forEach(button => {
@@ -113,4 +127,11 @@ igual.addEventListener('click', () => {
 AC.addEventListener('click', () => {
     calculadora.AllClear()
     calculadora.Udtela()
+})
+
+memoria.forEach(button => {
+    button.addEventListener('click', () => {
+        calculadora.Memo(button.innerText, salvo)
+        calculadora.Udtela()
+    })
 })
