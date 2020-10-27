@@ -1,0 +1,61 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.calc-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4,80px);
+    grid-template-rows: minmax(120px,auto) repeat(6,80px);    
+}
+
+.calc-grid>button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid black;
+    outline: none;      
+}
+
+.calc-grid>button:hover{
+    background-color: rgb(202, 202, 202);
+}
+
+.tela{
+    grid-column: 1/-1;
+    border: 1px solid black;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;    
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.tela .oper-an{
+    font-size: 1.5rem;
+}
+
+.tela .oper-at{
+    font-size: 2.5rem;
+}
+
+.op{
+    background-color: rgb(124, 124, 124);
+    color: white;
+}
+
+.ac{
+    background-color: rgb(5, 139, 184);
+}
+
+.Big{
+    grid-row: span 4;
+    background-color: orangered;
+}
+
+.M{
+    background-color: rgb(124, 124, 124);
+}
